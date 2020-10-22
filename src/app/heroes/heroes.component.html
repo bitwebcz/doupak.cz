@@ -1,0 +1,14 @@
+<!-- The double curly braces are Angular's interpolation binding syntax. -->
+<h2>{{componentTitle}}</h2>
+
+<!-- The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+
+<div>
+  <label>name:
+    <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
+    <input [(ngModel)]="hero.name" placeholder="name"/>
+  </label>
+</div>
