@@ -1,6 +1,7 @@
 // You always import the Component symbol from the Angular core library and
 // annotate the component class with @Component.
 import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
 
 // @Component is a decorator function that specifies the Angular metadata for the component.
 @Component({
