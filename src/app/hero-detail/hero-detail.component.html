@@ -1,0 +1,12 @@
+<!-- The *ngIf is Angular's if condition syntax. -->
+<div *ngIf="hero">
+  <!-- The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
+      <input [(ngModel)]="hero.name" placeholder="name" />
+    </label>
+  </div>
+</div>

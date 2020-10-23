@@ -1,7 +1,10 @@
 // You always import the Component symbol from the Angular core library and
 // annotate the component class with @Component.
 import { Component, OnInit } from '@angular/core';
+// Import our custom Hero interface
 import { Hero } from '../hero';
+// Import our mocked Hero list
+import { HEROES } from '../mock-heroes';
 
 // @Component is a decorator function that specifies the Angular metadata for the component.
 @Component({
@@ -14,13 +17,17 @@ import { Hero } from '../hero';
 export class HeroesComponent implements OnInit {
 
   // Add simple property to the HeroesComponent
-  componentTitle = 'Heroes component!';
+  componentTitle = 'Heroes component follows!';
 
-  // Add property with its own Hero interface
-  hero: Hero = {
-      id: 1,
-      name: 'Windstorm'
-  };
+  heroes = HEROES;
+
+  // Add property with its own Hero interface - uninitialized
+  selectedHero: Hero; // Hero = this.heroes[0];
+
+  // Custom event handler
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 
   constructor() { }
 

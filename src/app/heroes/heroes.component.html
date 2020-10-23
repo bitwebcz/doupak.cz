@@ -1,14 +1,15 @@
 <!-- The double curly braces are Angular's interpolation binding syntax. -->
 <h2>{{componentTitle}}</h2>
 
-<!-- The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
 
-<div>
-  <label>name:
-    <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
-    <input [(ngModel)]="hero.name" placeholder="name"/>
-  </label>
-</div>
+<ul class="heroes">
+  <!-- The *ngFor is Angular's repeater directive. -->
+  <!-- (click) is Angular's event binding syntax.. -->
+  <!-- [class.selected] is Angular's class binding  -->
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<!-- Render another component and pass selectedHero -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
