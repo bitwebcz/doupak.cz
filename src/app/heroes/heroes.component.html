@@ -2,14 +2,35 @@
 <h2>{{componentTitle}}</h2>
 
 
+<div>
+  <label>Add Hero:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
 <ul class="heroes">
   <!-- The *ngFor is Angular's repeater directive. -->
-  <!-- (click) is Angular's event binding syntax.. -->
-  <!-- [class.selected] is Angular's class binding  -->
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+
+    <!-- (click) is Angular's event binding syntax.. -->
+    <!-- [class.selected] is Angular's class binding  -->
+    <a (click)="preview(hero)" [class.selected]="hero === previewedHero">(preview)</a>
+
+    <!--  -->
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
 
-<!-- Render another component and pass selectedHero -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+
+
+
+<!-- Render child component and pass selectedHero -->
+<app-hero-detail [hero]="previewedHero"></app-hero-detail>

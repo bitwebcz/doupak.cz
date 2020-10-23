@@ -1,4 +1,13 @@
 <h1>{{title}}</h1>
 
-<!-- render the app-heroes component -->
-<app-heroes></app-heroes>
+<nav>
+  <!-- routerLink is public directive in the RouterModule that turns user clicks into router navigations. -->
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
+<!-- The <router-outlet> tells the router where to display routed views. -->
+<router-outlet></router-outlet>
+
+<!-- render the app-mwssages component -->
+<app-messages></app-messages>
